@@ -6,6 +6,7 @@ import { CopyRegular } from '@fluentui/react-icons'
 import { CosmosDBStatus } from '../../api'
 import Contoso from '../../assets/Contoso.svg'
 import { HistoryButton, ShareButton } from '../../components/common/Button'
+import { promptcatalogue } from '../../components/promptcatalogue'
 import { AppStateContext } from '../../state/AppProvider'
 
 import styles from './Layout.module.css'
@@ -127,6 +128,18 @@ const Layout = () => {
       </Dialog>
     </div>
   )
+
+  return (
+    <div className={styles.layout}>
+      <header className={styles.header} role={'banner'}>
+        {/* ...existing code... */}
+      </header>
+      <PromptSamples onSend={handleSend} disabled={false} placeholders={['Prompt 1', 'Prompt 2', 'Prompt 3']} /> {/* Add the PromptSamples component */}
+      <Outlet />
+      {/* ...existing code... */}
+    </div>
+  )
+    
 }
 
 export default Layout
